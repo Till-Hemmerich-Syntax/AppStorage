@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage(AppStorageKeys.NAMEKEY) var nameText : String = ""
+
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            TextField("name", text: $nameText)
         }
+        Button("PRESS ME"){
+           print(UserDefaults.standard.dictionaryRepresentation())
+        }
+        testView()
         .padding()
     }
 }
@@ -24,3 +30,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
